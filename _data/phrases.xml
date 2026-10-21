@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="kolakube_wp_posts_cache_minutes" version_id="1000370" version_string="1.0.3"><![CDATA[Refresh interval]]></phrase>
+  <phrase title="kolakube_wp_posts_cache_minutes_explain" version_id="1000370" version_string="1.0.3"><![CDATA[How long the list is kept before WordPress is asked for fresh posts. A longer interval is faster; a new or edited post can take this long to appear. Enter 0 to always load fresh posts. Caching needs a cache backend to be set up in your XenForo config.]]></phrase>
+  <phrase title="kolakube_wp_posts_cat_ids" version_id="1010070" version_string="1.1.0"><![CDATA[Category IDs]]></phrase>
+  <phrase title="kolakube_wp_posts_cat_ids_explain" version_id="1010070" version_string="1.1.0"><![CDATA[If you want to display posts or products from specific categories, enter the category IDs here separated by commas.]]></phrase>
+  <phrase title="kolakube_wp_posts_image_size" version_id="1000370" version_string="1.0.3"><![CDATA[Image size]]></phrase>
+  <phrase title="kolakube_wp_posts_image_size_explain" version_id="1000370" version_string="1.0.3"><![CDATA[The WordPress image size used for each post's featured image, or hide the images entirely. The exact dimensions of each size are set on your WordPress site under Settings > Media. If a post's image was uploaded before a size existed or is smaller than it, WordPress falls back to the closest size it has.]]></phrase>
+  <phrase title="kolakube_wp_posts_image_size_full" version_id="1000370" version_string="1.0.3"><![CDATA[Full (original upload)]]></phrase>
+  <phrase title="kolakube_wp_posts_image_size_large" version_id="1000370" version_string="1.0.3"><![CDATA[Large (1024 pixels wide by default)]]></phrase>
+  <phrase title="kolakube_wp_posts_image_size_medium" version_id="1000370" version_string="1.0.3"><![CDATA[Medium (300 pixels by default)]]></phrase>
+  <phrase title="kolakube_wp_posts_image_size_medium_large" version_id="1000370" version_string="1.0.3"><![CDATA[Medium large (768 pixels wide by default)]]></phrase>
+  <phrase title="kolakube_wp_posts_image_size_none" version_id="1000370" version_string="1.0.3"><![CDATA[Don't show images]]></phrase>
+  <phrase title="kolakube_wp_posts_image_size_thumbnail" version_id="1000370" version_string="1.0.3"><![CDATA[Thumbnail (150 x 150 pixels by default, cropped)]]></phrase>
+  <phrase title="kolakube_wp_posts_invalid_post_id" version_id="1000070" version_string="1.0.0"><![CDATA[Invalid post ID: '{post_id}']]></phrase>
+  <phrase title="kolakube_wp_posts_max_items" version_id="1000070" version_string="1.0.0"><![CDATA[Maximum entries]]></phrase>
+  <phrase title="kolakube_wp_posts_max_items_explain" version_id="1000070" version_string="1.0.0"><![CDATA[The maximum number of entries from categories to be displayed. Must be at least 1; the default is 5.]]></phrase>
+  <phrase title="kolakube_wp_posts_minutes" version_id="1000370" version_string="1.0.3"><![CDATA[minutes]]></phrase>
+  <phrase title="kolakube_wp_posts_post_ids" version_id="1010070" version_string="1.1.0"><![CDATA[Post IDs]]></phrase>
+  <phrase title="kolakube_wp_posts_post_ids_explain" version_id="1010070" version_string="1.1.0"><![CDATA[If you want to display specific posts or products, enter their IDs here separated by commas. These posts will be displayed first, regardless of category IDs or entry limits you may specify below.]]></phrase>
+  <phrase title="kolakube_wp_posts_title_url" version_id="1000070" version_string="1.0.0"><![CDATA[Widget title URL]]></phrase>
+  <phrase title="kolakube_wp_posts_title_url_explain" version_id="1000070" version_string="1.0.0"><![CDATA[Enter the URL to be used as a link in the widget title.]]></phrase>
+  <phrase title="kolakube_wp_posts_wpload_failed" version_id="1000070" version_string="1.0.0"><![CDATA[Cannot load WordPress from the path specified.
+<br>{error}]]></phrase>
+  <phrase title="option.KolakubeWpPostsWidget_wpPath" version_id="1000070" version_string="1.0.0"><![CDATA[WordPress installation path]]></phrase>
+  <phrase title="option_explain.KolakubeWpPostsWidget_wpPath" version_id="1000070" version_string="1.0.0"><![CDATA[Enter the full filesystem path to your WordPress installation.<br>
+<b>Example:</b> /path/to/wp/root/folder]]></phrase>
+  <phrase title="option_group.KolakubeWpPostsWidget" version_id="1000070" version_string="1.0.0"><![CDATA[WordPress Posts Widget]]></phrase>
+  <phrase title="option_group_description.KolakubeWpPostsWidget" version_id="1000070" version_string="1.0.0"><![CDATA[]]></phrase>
+  <phrase title="widget_def.kolakube_wp_posts" version_id="1000070" version_string="1.0.0"><![CDATA[WordPress Posts]]></phrase>
+  <phrase title="widget_def_desc.kolakube_wp_posts" version_id="1000070" version_string="1.0.0"><![CDATA[Displays chosen WordPress posts or WooCommerce products.]]></phrase>
+</phrases>

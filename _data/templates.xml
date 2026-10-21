@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="admin" title="widget_def_options_kolakube_wp_posts" version_id="1000370" version_string="1.0.3"><![CDATA[<hr class="formRowSep" />
+
+<xf:textboxrow name="options[post_ids]" value="{$options.post_ids}"
+	label="{{ phrase('kolakube_wp_posts_post_ids') }}"
+	explain="{{ phrase('kolakube_wp_posts_post_ids_explain') }}" />
+
+<xf:textboxrow name="options[cat_ids]" value="{$options.cat_ids}"
+	label="{{ phrase('kolakube_wp_posts_cat_ids') }}"
+	explain="{{ phrase('kolakube_wp_posts_cat_ids_explain') }}" />
+
+<xf:numberboxrow name="options[limit]" value="{{ $options.limit ? $options.limit : 5 }}" min="1"
+	label="{{ phrase('kolakube_wp_posts_max_items') }}"
+	explain="{{ phrase('kolakube_wp_posts_max_items_explain') }}" />
+
+<xf:selectrow name="options[image_size]" value="{{ $options.image_size ? $options.image_size : 'medium' }}"
+	label="{{ phrase('kolakube_wp_posts_image_size') }}"
+	explain="{{ phrase('kolakube_wp_posts_image_size_explain') }}">
+	<xf:option value="thumbnail">{{ phrase('kolakube_wp_posts_image_size_thumbnail') }}</xf:option>
+	<xf:option value="medium">{{ phrase('kolakube_wp_posts_image_size_medium') }}</xf:option>
+	<xf:option value="medium_large">{{ phrase('kolakube_wp_posts_image_size_medium_large') }}</xf:option>
+	<xf:option value="large">{{ phrase('kolakube_wp_posts_image_size_large') }}</xf:option>
+	<xf:option value="full">{{ phrase('kolakube_wp_posts_image_size_full') }}</xf:option>
+	<xf:option value="none">{{ phrase('kolakube_wp_posts_image_size_none') }}</xf:option>
+</xf:selectrow>
+
+<xf:numberboxrow name="options[cache_minutes]" value="{{ $options.cache_minutes !== null ? $options.cache_minutes : 5 }}" min="0" units="{{ phrase('kolakube_wp_posts_minutes') }}"
+	label="{{ phrase('kolakube_wp_posts_cache_minutes') }}"
+	explain="{{ phrase('kolakube_wp_posts_cache_minutes_explain') }}" />
+
+<xf:textboxrow name="options[title_url]" value="{$options.title_url}"
+	label="{{ phrase('kolakube_wp_posts_title_url') }}"
+	explain="{{ phrase('kolakube_wp_posts_title_url_explain') }}" />]]></template>
+  <template type="public" title="kolakube_wp_posts.less" version_id="1000370" version_string="1.0.3"><![CDATA[.wp_post-container { padding: 7px 10px; width: 100%; }
+
+.wp_post-image {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.wp_post-title {
+    margin-bottom: 3px;
+    margin-top: 0;
+}
+
+.wp_post-meta { font-size: @xf-fontSizeSmall; }
+
+.wp_product-price { margin-bottom: 5px; }
+
+.block-wp .structItemContainer {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.p-body-sidebar .wp_post-container:not(:last-child) { border-bottom: 1px solid @xf-borderColor; }
+
+@media all and (min-width: 575px) {
+    .p-body-content .wp_post-container {
+        align-items: center;
+        display: flex;
+        flex: 1 1 50%;
+        gap: 10px;
+        max-width: 50%;
+    }
+    .p-body-content .wp_post-thumbnail { flex: 1 35%; }
+    .p-body-content .wp_post-content { flex: 1 65%; }
+}
+
+@media all and (min-width: 750px) {
+    .p-body-content .wp_post-container { flex: 1 1 33%; }
+}]]></template>
+  <template type="public" title="widget_kolakube_wp_posts" version_id="1010270" version_string="1.1.2"><![CDATA[<xf:if is="$posts is not empty">
+    <xf:css src="kolakube_wp_posts.less" />
+    <div class="block"{{ widget_data($widget) }}>
+        <div class="block-container">
+            <h3 class="block-minorHeader">
+                <xf:if is="$options.title_url">
+                    <a href="{$options.title_url}">
+                </xf:if>
+                {$title}
+                <xf:if is="$options.title_url">
+                    </a>
+                </xf:if>
+            </h3>
+            <div class="block-wp block-body">
+                <div class="structItemContainer">
+                    <xf:foreach loop="$posts" value="$post">
+                   
+                        <div class="wp_post-container">
+                           
+                            <xf:if is="$post.thumbnail">
+                                <a href="{$post.permalink}" class="wp_post-thumbnail">
+                                    <img src="{$post.thumbnail}" {$post.image_dims|raw} class="wp_post-image" alt="{$post.image_alt}" loading="lazy" decoding="async">
+                                </a>
+                            </xf:if>
+
+                            <div class="wp_post-content">
+
+                                <xf:if is="$post.post_type == 'product'">
+                                    <div class="wp_product-price">
+                                        <span class="label label--lightGreen">{$currencySymbol}{$post.price}</span>
+                                    </div>
+                                </xf:if>
+                           
+                                <h4 class="wp_post-title">
+                                    <a href="{$post.permalink}">
+                                        {$post.post_title|raw}
+                                    </a>
+                                </h4>
+
+                                <xf:if is="$post.post_type !== 'product'">
+                                    <div class="wp_post-meta">
+                                        <span class="wp_post-meta-author">
+                                            <xf:fa icon="fa-user" /> {{ phrase('by') }} <a href="{$post.author_url}" class="username">{$post.author_name}</a>
+                                        </span>
+                                        <span class="wp_post-meta-date">
+                                            <xf:fa icon="fa-clock" /> <xf:date time="{$post.created_ts}" />
+                                        </span>
+                                    </div>
+                                </xf:if>
+
+                                <div class="wp_post-excerpt">
+                                    {$post.post_excerpt|raw}
+                                </div>
+
+                            </div>
+
+                        </div>
+               
+                    </xf:foreach>
+                </div>
+            </div>
+        </div>
+    </div>
+</xf:if>]]></template>
+</templates>

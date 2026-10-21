@@ -1,0 +1,23 @@
+{
+    "legacy_addon_id": "",
+    "title": "WordPress Posts Widget",
+    "description": "Show lists of blog posts and shop products from your WordPress site in an XF widget. Feature articles by post and category IDs, choose the image size or hide images, and cache the list for speed. WordPress must be installed on the same server as XenForo.",
+    "version_id": 1010270,
+    "version_string": "1.1.2",
+    "dev": "Kolakube",
+    "dev_url": "https://kolakube.com",
+    "faq_url": "",
+    "support_url": "https://kolakube.com/community/",
+    "extra_urls": [],
+    "require": {
+        "XF": [
+            2020000,
+            "XenForo 2.2.0+"
+        ],
+        "php": [
+            "7.2.0",
+            "PHP 7.2.0+"
+        ]
+    },
+    "icon": "fa-map-marker-edit"
+}
